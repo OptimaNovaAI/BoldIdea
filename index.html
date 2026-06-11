@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold Idea | AI Transformation Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B2A4A;
+            --accent: #7C3AED;
+            --accent-light: #A78BFA;
+            --teal: #0EA5E9;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --surface: #FFFFFF;
+            --surface-alt: #F8FAFC;
+            --surface-dark: #0F172A;
+            --text: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--surface-alt); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,23,42,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .nav-logo { color: #fff; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; }
+        .nav-logo span { color: var(--accent-light); }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 2rem; font-size: 0.85rem; font-weight: 500; }
+        .nav-links a:hover { color: #fff; }
+
+        .hero { background: linear-gradient(135deg, #0F172A 0%, #1E293B 40%, #1B2A4A 100%); padding: 8rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 30% 50%, rgba(124,58,237,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(14,165,233,0.1) 0%, transparent 60%); }
+        .hero-content { position: relative; max-width: 800px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.3); border-radius: 20px; padding: 0.35rem 1rem; color: var(--accent-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 1.5rem; }
+        .hero h1 { font-family: 'DM Serif Display', serif; color: #fff; font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; }
+        .hero h1 span { background: linear-gradient(135deg, var(--accent-light), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.7; max-width: 600px; margin: 0 auto 2.5rem; }
+        .hero-meta { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .hero-meta-item { text-align: center; }
+        .hero-meta-label { color: rgba(255,255,255,0.4); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+        .hero-meta-value { color: #fff; font-weight: 600; font-size: 0.95rem; }
+
+        .section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .section-title { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
+        .section-subtitle { color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .stat-card { background: #fff; border-radius: 12px; padding: 2rem; text-align: center; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .stat-card.accent { background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 100%); border: none; }
+        .stat-card.accent .stat-number, .stat-card.accent .stat-label { color: #fff; }
+        .stat-number { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 0.25rem; }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: #fff; border-radius: 12px; padding: 2rem; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .card-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--teal)); color: #fff; border-radius: 10px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; }
+        .card h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.75rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+        .card ul { list-style: none; margin-top: 0.75rem; }
+        .card ul li { padding: 0.4rem 0; padding-left: 1.25rem; position: relative; color: var(--text-muted); font-size: 0.85rem; }
+        .card ul li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+        .section-dark { background: linear-gradient(135deg, #0F172A, #1B2A4A); color: #fff; }
+        .section-dark .section-label { color: var(--accent-light); }
+        .section-dark .section-title { color: #fff; }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.6); }
+
+        .timeline { position: relative; padding-left: 3rem; }
+        .timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--teal)); }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-dot { position: absolute; left: -3rem; top: 0.25rem; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--teal)); display: flex; align-items: center; justify-content: center; }
+        .timeline-dot::after { content: ''; width: 10px; height: 10px; background: #fff; border-radius: 50%; }
+        .timeline-phase { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.25rem; }
+        .timeline-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .timeline-desc { color: var(--text-muted); font-size: 0.9rem; }
+
+        .cta-section { background: linear-gradient(135deg, #0F172A, #1B2A4A); padding: 5rem 2rem; text-align: center; }
+        .cta-section h2 { font-family: 'DM Serif Display', serif; color: #fff; font-size: 2.2rem; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--teal)); color: #fff; text-decoration: none; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.3); }
+
+        .footer { background: var(--surface-dark); padding: 2rem; text-align: center; }
+        .footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+        .footer a { color: var(--accent-light); text-decoration: none; }
+
+        .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .risk-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; }
+        .risk-label { font-size: 0.7rem; color: var(--warning); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .risk-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .risk-mitigation { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+        .risk-mitigation strong { color: var(--success); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-meta { gap: 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">Optima<span>Nova</span> AI</div>
+            <div class="nav-links">
+                <a href="#strategy">Strategy</a>
+                <a href="#opportunities">Opportunities</a>
+                <a href="#landscape">Landscape</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#cta">Next Steps</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">AI TRANSFORMATION STRATEGY</div>
+            <h1>Bold Idea <span>AI Strategy</span></h1>
+            <p class="hero-subtitle">A tailored AI transformation strategy for Bold Idea, designed to accelerate growth and operational excellence in the Nonprofit industry.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Prepared For</div>
+                    <div class="hero-meta-value">Joshua Boyce</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Prepared By</div>
+                    <div class="hero-meta-value">OptimaNova AI</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">Date</div>
+                    <div class="hero-meta-value">June 2026</div>
+                </div>
+                <div class="hero-meta-item">
+                    <div class="hero-meta-label">AI Readiness</div>
+                    <div class="hero-meta-value">Exploring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="strategy">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <div class="section-label">Strategic Imperative</div>
+                <div class="section-title">Why Bold Idea Needs AI Now</div>
+                <div class="section-subtitle">Bold Idea can transform educational outcomes by integrating AI into curriculum design and mentoring programs, helping students build future-ready skills while streamlining program delivery.</div>
+            </div>
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">65% faster</div>
+                    <div class="stat-label">Curriculum Development Speed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">89% increase</div>
+                    <div class="stat-label">Student Engagement Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">43% reduction</div>
+                    <div class="stat-label">Mentor Training Time</div>
+                </div>
+                <div class="stat-card accent">
+                    <div class="stat-number">3.4x expansion</div>
+                    <div class="stat-label">Program Scalability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background:#fff;" id="opportunities">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <div class="section-label">AI Opportunities</div>
+                <div class="section-title">Tailored Opportunities for Bold Idea</div>
+                <div class="section-subtitle">Based on your current challenges and goals, we've identified these high-impact areas.</div>
+            </div>
+            <div class="cards-grid fade-in">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h3>AI-Enhanced Curriculum Development</h3>
+                    <p>Modernize your educational content with AI-powered curriculum design tools that adapt to student needs and learning styles. Transform traditional lesson plans into dynamic, personalized learning experiences that prepare students for an AI-driven future.</p>
+                    <ul>
+                        <li>Adaptive learning platforms that adjust content difficulty based on student progress</li>
+                        <li>AI curriculum generators for STEM, coding, and digital literacy modules</li>
+                        <li>Automated assessment tools that provide real-time feedback and learning analytics</li>
+                        <li>Content personalization engines that match learning materials to individual student interests</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h3>Intelligent Mentoring Program Enhancement</h3>
+                    <p>Leverage AI to scale and improve your after-school mentoring programs through smart matching, progress tracking, and engagement optimization. Create data-driven mentoring experiences that maximize student outcomes and mentor effectiveness.</p>
+                    <ul>
+                        <li>AI-powered mentor-student matching based on personality, interests, and learning styles</li>
+                        <li>Automated progress tracking and goal-setting tools for mentoring relationships</li>
+                        <li>Chatbot-assisted homework help and study support systems</li>
+                        <li>Predictive analytics to identify students at risk and optimize intervention timing</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h3>Program Impact Measurement</h3>
+                    <p>Implement AI-driven analytics to measure and demonstrate program effectiveness, enabling data-informed decisions about curriculum improvements and resource allocation. Build compelling impact narratives for stakeholders and funders.</p>
+                    <ul>
+                        <li>Student outcome prediction models using engagement and performance data</li>
+                        <li>Automated impact reporting and visualization dashboards</li>
+                        <li>Natural language processing for analyzing student feedback and testimonials</li>
+                        <li>Comparative analysis tools to benchmark program effectiveness across different cohorts</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h3>Operational Efficiency and Volunteer Coordination</h3>
+                    <p>Streamline administrative tasks and volunteer management through AI automation, freeing up staff time for direct student engagement and program development. Create scalable systems that grow with your organization.</p>
+                    <ul>
+                        <li>Automated volunteer scheduling and coordination systems</li>
+                        <li>AI-powered grant writing assistance and funding opportunity identification</li>
+                        <li>Smart resource allocation tools for program materials and space utilization</li>
+                        <li>Predictive modeling for volunteer retention and recruitment optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="landscape">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <div class="section-label">Competitive Landscape</div>
+                <div class="section-title">Where You Stand vs. AI-Enabled Competitors</div>
+                <div class="section-subtitle">Benchmarking Bold Idea against AI-adopting peers in Nonprofit.</div>
+            </div>
+            <div class="risk-grid fade-in">
+                <div class="risk-card">
+                    <div class="risk-label">Risk 01</div>
+                    <div class="risk-title">Student Data Privacy and Ethics</div>
+                    <div class="risk-mitigation"><strong>Mitigation:</strong> Implement COPPA-compliant data handling protocols, establish clear consent processes for student data collection, and create transparent AI ethics guidelines for educational use</div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Risk 02</div>
+                    <div class="risk-title">Technology Learning Curve for Staff</div>
+                    <div class="risk-mitigation"><strong>Mitigation:</strong> Start with user-friendly AI tools, provide structured training programs, and establish peer mentoring systems to build internal AI literacy gradually</div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Risk 03</div>
+                    <div class="risk-title">Digital Equity and Access Barriers</div>
+                    <div class="risk-mitigation"><strong>Mitigation:</strong> Begin with low-tech AI solutions, partner with local tech organizations for device access, and design hybrid programs that work across different technology environments</div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Risk 04</div>
+                    <div class="risk-title">Curriculum Integration Complexity</div>
+                    <div class="risk-mitigation"><strong>Mitigation:</strong> Pilot AI integration with one program area first, involve educators in tool selection, and maintain traditional backup methods during transition periods</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="roadmap">
+        <div class="section-inner">
+            <div class="section-header fade-in">
+                <div class="section-label">Implementation Roadmap</div>
+                <div class="section-title">Your Path to AI Transformation</div>
+                <div class="section-subtitle">A phased approach designed to deliver quick wins while building toward sustained impact.</div>
+            </div>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase">Phase 1 — Weeks 1-2</div>
+                    <div class="timeline-title">AI Literacy Foundation</div>
+                    <div class="timeline-desc">Conduct staff workshops on AI fundamentals in education, assess current technology infrastructure, and identify 2-3 high-impact pilot areas for initial AI integration</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase">Phase 2 — Weeks 3-4</div>
+                    <div class="timeline-title">Pilot Program Launch</div>
+                    <div class="timeline-desc">Implement AI-powered curriculum tools in one subject area, introduce basic mentoring enhancement features, and establish data collection protocols for impact measurement</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase">Phase 3 — Weeks 5-8</div>
+                    <div class="timeline-title">Program Expansion</div>
+                    <div class="timeline-desc">Scale successful AI tools across multiple curriculum areas, integrate advanced mentoring analytics, and develop staff competency in AI tool management and troubleshooting</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase">Phase 4 — Weeks 9-12</div>
+                    <div class="timeline-title">Optimization and Innovation</div>
+                    <div class="timeline-desc">Analyze pilot results to refine AI implementations, explore advanced applications like predictive student support, and create sustainable processes for ongoing AI integration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <h2>Ready to Transform Education with AI?</h2>
+        <p>The students you serve today will enter an AI-powered workforce, and your programs can give them the competitive edge they need.</p>
+        <a href="https://calendar.app.google/jZ7gEZwUswTc1neM9" target="_blank" class="cta-btn">Schedule a Strategy Session</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 <a href="https://optimanova.ai">OptimaNova AI</a> &bull; Empowering organizations through intelligent AI adoption.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
