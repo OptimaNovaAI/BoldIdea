@@ -1,0 +1,2 @@
+# BoldIdea
+AI Strategy Dashboard
